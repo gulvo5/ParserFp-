@@ -34,121 +34,63 @@
 
         /* --- HEADER --- */
         .header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 12px 24px;
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color); padding: 12px 24px;
         }
         .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
         }
-        .logo {
-            font-weight: 600;
-            font-size: 16px;
-            letter-spacing: -0.02em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .logo-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #101010;
-            border-radius: 50%;
-        }
+        .logo { font-weight: 600; font-size: 16px; letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+        .logo-dot { width: 8px; height: 8px; background-color: #101010; border-radius: 50%; }
         .header-actions { display: flex; align-items: center; gap: 16px; }
-        .status-badge {
-            font-size: 12px;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .status-indicator {
-            width: 6px;
-            height: 6px;
-            background-color: #10b981;
-            border-radius: 50%;
-        }
+        
+        .status-badge { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+        .status-indicator { width: 6px; height: 6px; background-color: #10b981; border-radius: 50%; }
 
         /* --- BUTTONS --- */
         .btn {
-            background-color: #101010;
-            color: #ffffff;
-            border: 1px solid #101010;
-            border-radius: 9999px;
-            padding: 6px 16px;
-            font-weight: 500;
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            background-color: #101010; color: #ffffff; border: 1px solid #101010;
+            border-radius: 9999px; padding: 6px 16px; font-weight: 500; font-size: 13px; cursor: pointer; transition: all 0.2s ease;
         }
         .btn:hover { background-color: #242424; }
-        .btn-outline {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-        }
+        .btn-outline { background-color: transparent; color: var(--text-main); border: 1px solid var(--border-color); }
         .btn-outline:hover { background-color: #f9fafb; }
-        .btn:disabled {
-            background-color: var(--border-color);
-            border-color: var(--border-color);
-            color: var(--text-muted);
-            cursor: not-allowed;
-        }
+        .btn:disabled { background-color: var(--border-color); border-color: var(--border-color); color: var(--text-muted); cursor: not-allowed; }
 
-        /* --- CONTAINER --- */
+        /* --- CONTENT MAIN --- */
         .container { max-width: 1200px; margin: 40px auto 0 auto; padding: 0 24px; }
         .hero h1 { font-size: 28px; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 24px; }
 
         /* --- STATS GRID --- */
         .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
-        .stat-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-card);
-            padding: 20px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow);
-        }
+        .stat-card { background: var(--bg-card); border-radius: var(--radius-card); padding: 20px; border: 1px solid var(--border-color); box-shadow: var(--shadow); }
         .stat-label { font-size: 13px; color: var(--text-muted); margin-bottom: 4px; font-weight: 500; }
         .stat-value { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; }
 
-        .error-banner {
-            background-color: #fef2f2; border: 1px solid #fca5a5; color: #991b1b;
-            padding: 12px 16px; border-radius: 8px; margin-bottom: 24px; display: none; font-size: 13px;
-        }
+        .error-banner { background-color: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; padding: 12px 16px; border-radius: 8px; margin-bottom: 24px; display: none; font-size: 13px; }
 
-        /* --- GRID & CARDS --- */
+        /* --- CARDS GRID --- */
         .nft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
         
         @media (max-width: 1024px) { .nft-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 640px) { .nft-grid { grid-template-columns: 1fr; } .stats-grid { grid-template-columns: 1fr; } }
 
         .nft-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-card);
-            padding: 24px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 185px;
+            background: var(--bg-card); border-radius: var(--radius-card); padding: 24px; border: 1px solid var(--border-color); box-shadow: var(--shadow);
+            display: flex; flex-direction: column; justify-content: space-between; min-height: 190px;
+            transition: transform 0.2s ease;
         }
-        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-        .nft-title { font-size: 15px; font-weight: 600; color: var(--text-main); }
-        .badge-new {
-            background-color: #eff6ff; color: var(--accent-link);
-            font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 9999px; text-transform: uppercase;
-        }
-        .nft-snippet { font-size: 13px; color: var(--text-muted); white-space: pre-line; margin-bottom: 16px; }
+        .nft-card:hover { transform: translateY(-2px); }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 8px; }
+        .nft-title { font-size: 15px; font-weight: 600; color: var(--text-main); line-height: 1.3; }
+        .badge-new { background-color: #eff6ff; color: var(--accent-link); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 9999px; text-transform: uppercase; }
+        
+        .card-body { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+        .info-row { margin-bottom: 4px; }
+        .info-row strong { color: var(--text-main); }
+
         .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid #f3f4f6; }
         .nft-time { font-size: 12px; color: var(--text-muted); }
         .nft-link { color: var(--accent-link); text-decoration: none; font-weight: 500; font-size: 13px; }
@@ -165,21 +107,18 @@
 </head>
 <body>
 
-    <!-- HEADER -->
     <header class="header">
         <div class="header-container">
-            <div class="logo"><span class="logo-dot"></span> FunPay NFT Monitor</div>
+            <div class="logo"><span class="logo-dot"></span> FunPay NFT Панель</div>
             <div class="header-actions">
-                <div class="status-badge"><span class="status-indicator"></span> Автопроверка: 5с</div>
-                <button class="btn btn-outline" id="clearBtn">Сброс</button>
+                <div class="status-badge"><span class="status-indicator"></span> Синхронизация: 5с</div>
                 <button class="btn" id="refreshBtn">Обновить</button>
             </div>
         </div>
     </header>
 
-    <!-- MAIN APP -->
     <main class="container">
-        <div class="error-banner" id="errorBanner">Ошибка подключения к Telegram API. Проверьте токен.</div>
+        <div class="error-banner" id="errorBanner">Файл логов дашборда (dashboard_data.json) не найден. Запусти бота, чтобы он выполнил первую проверку лотов на FunPay.</div>
 
         <section class="hero">
             <h1>Мониторинг лотов FunPay</h1>
@@ -190,20 +129,18 @@
                     <div class="stat-value" id="statsTotalBot">0</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">Лот на странице FunPay</div>
+                    <div class="stat-label">Всего предложений на FunPay</div>
                     <div class="stat-value" id="statsItemsBot">0</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">Активных в панели (за 10 мин)</div>
+                    <div class="stat-label">Активных на панели (за 10 мин)</div>
                     <div class="stat-value" id="statsDashboard">0</div>
                 </div>
             </div>
         </section>
 
-        <!-- CARDS GRID -->
         <section class="nft-grid" id="nftGrid"></section>
 
-        <!-- PAGINATION CONTROLS -->
         <div class="pagination">
             <button class="btn btn-outline" id="prevPageBtn">Назад</button>
             <span class="page-info" id="pageInfo">Страница 1 из 1</span>
@@ -212,147 +149,67 @@
     </main>
 
     <footer class="footer">
-        <div>&copy; 2026 FunPay Monitor. Cal.com Style.</div>
-        <div>Очистка логов старше 10 минут включена</div>
+        <div>&copy; 2026 FunPay Monitor. Minimal Design.</div>
+        <div>Карточки логов старше 10 минут стираются автоматически.</div>
     </footer>
 
     <script>
-        const BOT_TOKEN = '8921279064:AAGQxG_NxShysMmtGcTGNdm1feq1zavtZaY';
-        const TELEGRAM_URL = `https://api.telegram.org/bot${BOT_TOKEN}/getUpdates`;
-        
-        const ITEMS_PER_PAGE = 9; // Сколько карточек показывать на одной странице
+        const DATA_URL = 'dashboard_data.json';
+        const ITEMS_PER_PAGE = 9;
         let currentPage = 1;
-
-        // STATE
+        
         let state = {
-            items: JSON.parse(localStorage.getItem('fp_monitor_items')) || [],
-            lastUpdateId: Number(localStorage.getItem('fp_monitor_offset')) || 0,
-            botTotalProfitable: Number(localStorage.getItem('fp_bot_total')) || 0,
-            botPageOffers: Number(localStorage.getItem('fp_bot_offers')) || 0
+            items: [],
+            botTotalProfitable: 0,
+            botPageOffers: 0
         };
 
-        // PARSE FUNPAY LINKS & LOGS
-        function parseTelegramMessage(text, msgId) {
-            if (!text) return null;
-
-            // Проверяем, наш ли это системный пост от бота
-            if (text.includes("Статус мониторинга") || text.includes("Всего найдено выгодных")) {
-                
-                // Вытаскиваем цифры регулярками для статистики
-                const totalMatch = text.match(/Всего найдено выгодных \(за всё время\):\s*(\d+)/);
-                if (totalMatch) state.botTotalProfitable = parseInt(totalMatch[1]);
-
-                const offersMatch = text.match(/Предложений на странице при последней проверке:\s*(\d+)/);
-                if (offersMatch) state.botPageOffers = parseInt(offersMatch[1]);
-
-                // Ищем любые ссылки на лоты funpay.com/lots/ или предложения
-                const urlRegex = /(https?:\/\/funpay\.com\/[^\s]+)/g;
-                const urls = text.match(urlRegex) || [];
-                const targetLink = urls[0] || "https://funpay.com/lots/3064/";
-
-                return {
-                    id: msgId,
-                    title: "Обновление FunPay NFT",
-                    link: targetLink,
-                    timestamp: new Date().getTime(),
-                    snippet: text
-                };
-            }
-            return null;
-        }
-
-        function saveState() {
-            localStorage.setItem('fp_monitor_items', JSON.stringify(state.items));
-            localStorage.setItem('fp_monitor_offset', state.lastUpdateId);
-            localStorage.setItem('fp_bot_total', state.botTotalProfitable);
-            localStorage.setItem('fp_bot_offers', state.botPageOffers);
-        }
-
-        // AUTO-CLEANUP (Удаление записей старше 10 минут)
-        function cleanOldItems() {
-            const tenMinutesAgo = new Date().getTime() - (10 * 60 * 1000);
-            const initialLength = state.items.length;
-            
-            state.items = state.items.filter(item => item.timestamp > tenMinutesAgo);
-            
-            if (state.items.length !== initialLength) {
-                saveState();
-                // Если из-за удаления страниц стало меньше, корректируем текущую
-                const maxPage = Math.ceil(state.items.length / ITEMS_PER_PAGE) || 1;
-                if (currentPage > maxPage) currentPage = maxPage;
-                renderDOM();
-            }
-        }
-
-        // REQUEST TO TG
-        async function fetchUpdates() {
+        async function loadDashboardData() {
             const errorBanner = document.getElementById('errorBanner');
-            const url = `${TELEGRAM_URL}?offset=${state.lastUpdateId + 1}&timeout=2`;
-
             try {
-                const response = await fetch(url);
+                // Добавляем timestamp к URL, чтобы браузер не кэшировал старый JSON
+                const response = await fetch(DATA_URL + '?t=' + new Date().getTime());
                 if (!response.ok) throw new Error();
                 const data = await response.json();
                 errorBanner.style.display = 'none';
 
-                if (data.ok && data.result.length > 0) {
-                    let updated = false;
+                state.botTotalProfitable = data.total_profitable || 0;
+                state.botPageOffers = data.last_page_offers || 0;
+                
+                // Фильтр: оставляем на панели только лоты, пришедшие в последние 10 минут
+                const tenMinutesAgo = new Date().getTime() - (10 * 60 * 1000);
+                state.items = (data.items || []).filter(item => item.timestamp > tenMinutesAgo);
 
-                    data.result.forEach(update => {
-                        if (update.update_id > state.lastUpdateId) {
-                            state.lastUpdateId = update.update_id;
-                        }
-
-                        const msg = update.message || update.channel_post;
-                        if (!msg) return;
-
-                        const parsed = parseTelegramMessage(msg.text || msg.caption, msg.message_id);
-                        if (parsed) {
-                            // Исключаем дубли по тексту
-                            const exists = state.items.some(i => i.snippet === parsed.snippet);
-                            if (!exists) {
-                                state.items.unshift(parsed);
-                                updated = true;
-                            }
-                        }
-                    });
-
-                    if (updated) {
-                        saveState();
-                        renderDOM();
-                    }
-                }
+                renderDOM();
             } catch (e) {
                 errorBanner.style.display = 'block';
             }
         }
 
-        // RENDER INTERFACE
         function renderDOM() {
             const grid = document.getElementById('nftGrid');
             
-            // Обновляем плашки статистики
             document.getElementById('statsTotalBot').textContent = state.botTotalProfitable;
             document.getElementById('statsItemsBot').textContent = state.botPageOffers;
             document.getElementById('statsDashboard').textContent = state.items.length;
 
             if (state.items.length === 0) {
-                grid.innerHTML = `<div class="empty-state"><p>Нет активных логов за последние 10 минут. Ожидаем парсер...</p></div>`;
+                grid.innerHTML = `<div class="empty-state"><p>Выгодных лотов за последние 10 минут не обнаружено. Парсер ищет лоты...</p></div>`;
                 document.getElementById('pageInfo').textContent = "Страница 1 из 1";
+                document.getElementById('prevPageBtn').disabled = true;
+                document.getElementById('nextPageBtn').disabled = true;
                 return;
             }
 
-            // Логика пагинации
             const totalPages = Math.ceil(state.items.length / ITEMS_PER_PAGE);
+            if (currentPage > totalPages) currentPage = totalPages || 1;
+
             document.getElementById('pageInfo').textContent = `Страница ${currentPage} из ${totalPages}`;
-            
             document.getElementById('prevPageBtn').disabled = currentPage === 1;
             document.getElementById('nextPageBtn').disabled = currentPage === totalPages;
 
-            // Срез данных для текущей страницы
             const start = (currentPage - 1) * ITEMS_PER_PAGE;
-            const end = start + ITEMS_PER_PAGE;
-            const pageItems = state.items.slice(start, end);
+            const pageItems = state.items.slice(start, start + ITEMS_PER_PAGE);
 
             const now = new Date().getTime();
             const fiveMinutesMs = 5 * 60 * 1000;
@@ -365,14 +222,18 @@
                     <div class="nft-card">
                         <div>
                             <div class="card-header">
-                                <h3 class="nft-title">${item.title}</h3>
+                                <h3 class="nft-title">${escapeHTML(item.title)}</h3>
                                 ${isNew ? '<span class="badge-new">Новый</span>' : ''}
                             </div>
-                            <p class="nft-snippet">${escapeHTML(item.snippet)}</p>
+                            <div class="card-body">
+                                <div class="info-row"><strong>Цена:</strong> ${item.price} ₽</div>
+                                <div class="info-row"><strong>Продавец:</strong> ${escapeHTML(item.seller)}</div>
+                                <div class="info-row"><strong>Ключевое слово:</strong> ${escapeHTML(item.matched_keyword)}</div>
+                            </div>
                         </div>
                         <div class="card-footer">
-                            <span class="nft-time">Получено: ${timeStr}</span>
-                            <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="nft-link">Открыть FunPay &rarr;</a>
+                            <span class="nft-time">${timeStr}</span>
+                            <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="nft-link">Купить &rarr;</a>
                         </div>
                     </div>
                 `;
@@ -380,33 +241,21 @@
         }
 
         function escapeHTML(str) {
-            return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
+            return str ? str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)) : '';
         }
 
-        // PAGINATION EVENTS
-        document.getElementById('prevPageBtn').addEventListener('click', () => {
-            if (currentPage > 1) { currentPage--; renderDOM(); }
-        });
+        // Слушатели пагинации
+        document.getElementById('prevPageBtn').addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderDOM(); } });
         document.getElementById('nextPageBtn').addEventListener('click', () => {
             const totalPages = Math.ceil(state.items.length / ITEMS_PER_PAGE);
             if (currentPage < totalPages) { currentPage++; renderDOM(); }
         });
 
-        // ACTIONS
-        document.getElementById('refreshBtn').addEventListener('click', () => fetchUpdates());
-        document.getElementById('clearBtn').addEventListener('click', () => {
-            if(confirm("Сбросить кэш панели?")) {
-                state.items = []; state.botPageOffers = 0; state.botTotalProfitable = 0;
-                currentPage = 1; saveState(); renderDOM();
-            }
-        });
+        document.getElementById('refreshBtn').addEventListener('click', loadDashboardData);
 
-        // TIMERS
-        renderDOM();
-        fetchUpdates();
-        
-        setInterval(fetchUpdates, 5000); // Каждые 5 секунд опрашиваем ТГ
-        setInterval(cleanOldItems, 10000); // Каждые 10 секунд проверяем на "просроченность" в 10 минут
+        // Старт циклов обновления
+        loadDashboardData();
+        setInterval(loadDashboardData, 5000); // Опрос файла каждые 5 секунд
     </script>
 </body>
 </html>
