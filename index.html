@@ -18,31 +18,59 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: var(--bg-page); color: var(--text-main); font-family: var(--font-stack); font-size: 14px; padding-bottom: 60px; }
+        
         .header { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); padding: 12px 24px; }
         .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-weight: 600; font-size: 16px; display: flex; align-items: center; gap: 8px; }
         .logo-dot { width: 8px; height: 8px; background-color: #101010; border-radius: 50%; }
-        .btn { background-color: #101010; color: #ffffff; border: 1px solid #101010; border-radius: 9999px; padding: 6px 16px; font-weight: 500; font-size: 13px; cursor: pointer; }
+        
+        .btn { background-color: #101010; color: #ffffff; border: 1px solid #101010; border-radius: 9999px; padding: 6px 16px; font-weight: 500; font-size: 13px; cursor: pointer; transition: all 0.2s ease; }
+        .btn:hover { background-color: #242424; }
         .btn-outline { background-color: transparent; color: var(--text-main); border: 1px solid var(--border-color); }
+        .btn-outline:hover { background-color: #f9fafb; }
         .btn:disabled { background-color: var(--border-color); border-color: var(--border-color); color: var(--text-muted); cursor: not-allowed; }
+        
         .container { max-width: 1200px; margin: 40px auto 0 auto; padding: 0 24px; }
         .hero h1 { font-size: 28px; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 24px; }
-        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+        
+        /* --- ФИЛЬТРЫ И ИНПУТЫ --- */
+        .controls-panel { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-card); padding: 20px; margin-bottom: 24px; box-shadow: var(--shadow); }
+        .filter-section-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 12px; }
+        
+        .price-inputs { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+        .price-field { display: flex; align-items: center; gap: 8px; }
+        .price-field input { background: #ffffff; border: 1px solid var(--border-color); border-radius: 6px; padding: 6px 12px; width: 100px; font-family: var(--font-stack); font-size: 13px; color: var(--text-main); outline: none; }
+        .price-field input:focus { border-color: #101010; }
+        
+        .tags-container { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag-btn { background: #f3f4f6; border: 1px solid #f3f4f6; border-radius: 9999px; padding: 4px 12px; font-size: 12px; font-weight: 500; cursor: pointer; color: var(--text-main); transition: all 0.15s ease; }
+        .tag-btn:hover { background: #e5e7eb; }
+        .tag-btn.active { background: #101010; border-color: #101010; color: #ffffff; }
+
+        /* --- СТАТИСТИКА --- */
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
         .stat-card { background: var(--bg-card); border-radius: var(--radius-card); padding: 20px; border: 1px solid var(--border-color); box-shadow: var(--shadow); }
         .stat-label { font-size: 13px; color: var(--text-muted); margin-bottom: 4px; }
         .stat-value { font-size: 24px; font-weight: 600; }
+        
         .error-banner { background-color: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; padding: 12px 16px; border-radius: 8px; margin-bottom: 24px; display: none; }
+        
+        /* --- СЕТКА КАРТОЧЕК --- */
         .nft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         @media (max-width: 1024px) { .nft-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 640px) { .nft-grid, .stats-grid { grid-template-columns: 1fr; } }
+        
         .nft-card { background: var(--bg-card); border-radius: var(--radius-card); padding: 24px; border: 1px solid var(--border-color); box-shadow: var(--shadow); display: flex; flex-direction: column; justify-content: space-between; min-height: 190px; }
-        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 8px; }
         .nft-title { font-size: 15px; font-weight: 600; }
-        .badge-new { background-color: #eff6ff; color: var(--accent-link); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 9999px; }
+        .badge-new { background-color: #eff6ff; color: var(--accent-link); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 9999px; text-transform: uppercase; }
         .card-body { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+        .card-body div { margin-bottom: 3px; }
+        
         .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid #f3f4f6; }
         .nft-link { color: var(--accent-link); text-decoration: none; font-weight: 500; }
         .empty-state { grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: var(--bg-card); border-radius: var(--radius-card); border: 1px dashed var(--border-color); color: var(--text-muted); }
+        
         .pagination { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 32px; }
         .footer { max-width: 1200px; margin: 60px auto 0 auto; padding: 24px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; color: var(--text-muted); font-size: 12px; }
     </style>
@@ -51,20 +79,41 @@
 
     <header class="header">
         <div class="header-container">
-            <div class="logo"><span class="logo-dot"></span> FunPay NFT Дашборд</div>
+            <div class="logo"><span class="logo-dot"></span> FunPay NFT Панель</div>
             <button class="btn" id="refreshBtn">Обновить</button>
         </div>
     </header>
 
     <main class="container">
-        <div class="error-banner" id="errorBanner">Файл dashboard_data.json еще не создан ботом в репозитории. Ожидайте пуша от Termux.</div>
+        <div class="error-banner" id="errorBanner">Ожидание файла логов от бота (dashboard_data.json)...</div>
 
         <section class="hero">
             <h1>Мониторинг лотов FunPay</h1>
+            
             <div class="stats-grid">
                 <div class="stat-card"><div class="stat-label">Выгодных (Всего)</div><div class="stat-value" id="statsTotalBot">0</div></div>
                 <div class="stat-card"><div class="stat-label">Лотов на FunPay</div><div class="stat-value" id="statsItemsBot">0</div></div>
-                <div class="stat-card"><div class="stat-label">Активных (10 мин)</div><div class="stat-value" id="statsDashboard">0</div></div>
+                <div class="stat-card"><div class="stat-label">Подходит под фильтры</div><div class="stat-value" id="statsDashboard">0</div></div>
+            </div>
+
+            <div class="controls-panel">
+                <div class="filter-section-title">Фильтр по цене (₽)</div>
+                <div class="price-inputs">
+                    <div class="price-field">
+                        <label for="minPrice">От:</label>
+                        <input type="number" id="minPrice" placeholder="0" value="200">
+                    </div>
+                    <div class="price-field">
+                        <label for="maxPrice">До:</label>
+                        <input type="number" id="maxPrice" placeholder="999999" value="400">
+                    </div>
+                    <button class="btn btn-outline" id="resetPriceBtn" style="padding: 5px 12px; font-size:12px;">Сбросить цену</button>
+                </div>
+
+                <div class="filter-section-title">Фильтр по триггеру предмета</div>
+                <div class="tags-container" id="tagsContainer">
+                    <button class="tag-btn active" data-tag="all">Все предметы</button>
+                    </div>
             </div>
         </section>
 
@@ -77,13 +126,40 @@
         </div>
     </main>
 
-    <footer class="footer"><div>&copy; 2026 FunPay GitHub Panel.</div></footer>
+    <footer class="footer"><div>&copy; 2026 FunPay GitHub Panel. Сортировка и умный фильтр цен включены.</div></footer>
 
     <script>
         const DATA_URL = 'dashboard_data.json';
         const ITEMS_PER_PAGE = 9;
         let currentPage = 1;
+        
         let state = { items: [], botTotalProfitable: 0, botPageOffers: 0 };
+        let activeTag = 'all';
+        let totalItemsReceived = 0;
+        
+        // Переменные для мигания вкладки
+        let isTabActive = true;
+        let originalTitle = document.title;
+        let titleInterval = null;
+
+        // Отслеживаем, открыта ли вкладка
+        document.addEventListener('visibilitychange', () => {
+            isTabActive = !document.hidden;
+            if (isTabActive) {
+                clearInterval(titleInterval);
+                document.title = originalTitle;
+                titleInterval = null;
+            }
+        });
+
+        function flashTabTitle() {
+            if (isTabActive || titleInterval) return;
+            let step = 0;
+            titleInterval = setInterval(() => {
+                document.title = step % 2 === 0 ? '⚠️ НОВЫЙ ЛОТ!' : 'FunPay NFT Dashboard';
+                step++;
+            }, 1000);
+        }
 
         async function loadData() {
             try {
@@ -96,34 +172,95 @@
                 state.botPageOffers = data.last_page_offers || 0;
                 
                 const tenMinAgo = new Date().getTime() - (10 * 60 * 1000);
-                state.items = (data.items || []).filter(item => item.timestamp > tenMinAgo);
+                const fetchedItems = data.items || [];
+                
+                // Если прилетели новые лоты, которых у нас не было — мигаем вкладкой
+                if (fetchedItems.length > totalItemsReceived && totalItemsReceived > 0) {
+                    flashTabTitle();
+                }
+                totalItemsReceived = fetchedItems.length;
+
+                // Базовый фильтр времени (10 минут)
+                state.items = fetchedItems.filter(item => item.timestamp > tenMinAgo);
+                
+                updateTags(state.items);
                 renderDOM();
             } catch (e) {
                 document.getElementById('errorBanner').style.display = 'block';
             }
         }
 
+        // Автоматическое создание кнопок под найденные предметы
+        function updateTags(items) {
+            const container = document.getElementById('tagsContainer');
+            // Собираем уникальные триггеры (matched_keyword)
+            const tags = new Set();
+            items.forEach(item => { if(item.matched_keyword) tags.add(item.matched_keyword); });
+            
+            // Сохраняем текущую активную кнопку
+            const currentActive = activeTag;
+
+            // Перерисовываем контейнер тегов
+            container.innerHTML = `<button class="tag-btn ${currentActive === 'all' ? 'active' : ''}" data-tag="all">Все предметы</button>`;
+            
+            tags.forEach(tag => {
+                container.innerHTML += `<button class="tag-btn ${currentActive === tag ? 'active' : ''}" data-tag="${tag}">${escapeHTML(tag)}</button>`;
+            });
+
+            // Навешиваем клики
+            document.querySelectorAll('.tag-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    activeTag = e.target.getAttribute('data-tag');
+                    currentPage = 1;
+                    renderDOM();
+                });
+            });
+        }
+
         function renderDOM() {
             const grid = document.getElementById('nftGrid');
+            
+            const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
+            const maxPrice = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+
+            // Кастомная фильтрация: Цена + Предмет
+            const filteredItems = state.items.filter(item => {
+                const matchPrice = item.price >= minPrice && item.price <= maxPrice;
+                const matchItemTag = activeTag === 'all' || item.matched_keyword === activeTag;
+                return matchPrice && matchItemTag;
+            });
+
             document.getElementById('statsTotalBot').textContent = state.botTotalProfitable;
             document.getElementById('statsItemsBot').textContent = state.botPageOffers;
-            document.getElementById('statsDashboard').textContent = state.items.length;
+            document.getElementById('statsDashboard').textContent = filteredItems.length;
 
-            if (state.items.length === 0) {
-                grid.innerHTML = `<div class="empty-state"><p>Нет свежих лотов за 10 минут.</p></div>`;
+            if (filteredItems.length === 0) {
+                grid.innerHTML = `<div class="empty-state"><p>Нет лотов за 10 минут, подходящих под выбранные цену и фильтр предметов.</p></div>`;
+                document.getElementById('pageInfo').textContent = "Страница 1 из 1";
+                document.getElementById('prevPageBtn').disabled = true;
+                document.getElementById('nextPageBtn').disabled = true;
                 return;
             }
 
-            const totalPages = Math.ceil(state.items.length / ITEMS_PER_PAGE);
+            const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
+            if (currentPage > totalPages) currentPage = totalPages || 1;
+
             const start = (currentPage - 1) * ITEMS_PER_PAGE;
-            const pageItems = state.items.slice(start, start + ITEMS_PER_PAGE);
+            const pageItems = filteredItems.slice(start, start + ITEMS_PER_PAGE);
 
             document.getElementById('pageInfo').textContent = `Страница ${currentPage} из ${totalPages}`;
             document.getElementById('prevPageBtn').disabled = currentPage === 1;
             document.getElementById('nextPageBtn').disabled = currentPage === totalPages;
 
+            const now = new Date().getTime();
+            const fiveMinutesMs = 5 * 60 * 1000;
+
             grid.innerHTML = pageItems.map(item => {
-                const isNew = (new Date().getTime() - item.timestamp) < (5 * 60 * 1000);
+                const isNew = (now - item.timestamp) < fiveMinutesMs;
+                const timeStr = new Date(item.timestamp).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'});
+
                 return `
                     <div class="nft-card">
                         <div>
@@ -134,11 +271,11 @@
                             <div class="card-body">
                                 <div><strong>Цена:</strong> ${item.price} ₽</div>
                                 <div><strong>Продавец:</strong> ${escapeHTML(item.seller)}</div>
-                                <div><strong>Триггер:</strong> ${escapeHTML(item.matched_keyword)}</div>
+                                <div><strong>Триггер фильтра:</strong> ${escapeHTML(item.matched_keyword)}</div>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <span>${new Date(item.timestamp).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}</span>
+                            <span>${timeStr}</span>
                             <a href="${item.url}" target="_blank" class="nft-link">Купить &rarr;</a>
                         </div>
                     </div>
@@ -147,10 +284,23 @@
         }
 
         function escapeHTML(str) { return str ? str.replace(/[&<>'"]/g, t => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[t])) : ''; }
+        
+        // Слушатели событий
         document.getElementById('prevPageBtn').addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderDOM(); } });
         document.getElementById('nextPageBtn').addEventListener('click', () => { if (currentPage < Math.ceil(state.items.length / ITEMS_PER_PAGE)) { currentPage++; renderDOM(); } });
         document.getElementById('refreshBtn').addEventListener('click', loadData);
+        
+        // Слушатели изменения цен
+        document.getElementById('minPrice').addEventListener('input', () => { currentPage = 1; renderDOM(); });
+        document.getElementById('maxPrice').addEventListener('input', () => { currentPage = 1; renderDOM(); });
+        
+        document.getElementById('resetPriceBtn').addEventListener('click', () => {
+            document.getElementById('minPrice').value = '';
+            document.getElementById('maxPrice').value = '';
+            renderDOM();
+        });
 
+        // Запуск
         loadData();
         setInterval(loadData, 5000);
     </script>
